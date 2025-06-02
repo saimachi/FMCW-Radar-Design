@@ -1,5 +1,4 @@
-Record=TopLevelDocument|FileName=Power.SchDoc|SheetNumber=2
-Record=NoMainPathDocument|SourceDocument=Power.SchDoc|FileName=Receiver-2.4GHz.SchDoc|SheetNumber=5
-Record=NoMainPathDocument|SourceDocument=Power.SchDoc|FileName=Receiver.SchDoc|SheetNumber=3
-Record=NoMainPathDocument|SourceDocument=Power.SchDoc|FileName=Transmitter-2.4GHz.SchDoc|SheetNumber=4
-Record=NoMainPathDocument|SourceDocument=Power.SchDoc|FileName=Transmitter.SchDoc|SheetNumber=1
+Record=TopLevelDocument|FileName=MCU.SchDoc|SheetNumber=4
+Record=NoMainPathDocument|SourceDocument=MCU.SchDoc|FileName=Power.SchDoc|SheetNumber=1
+Record=NoMainPathDocument|SourceDocument=MCU.SchDoc|FileName=Receiver-2.4GHz.SchDoc|SheetNumber=3
+Record=NoMainPathDocument|SourceDocument=MCU.SchDoc|FileName=Transmitter-2.4GHz.SchDoc|SheetNumber=2
