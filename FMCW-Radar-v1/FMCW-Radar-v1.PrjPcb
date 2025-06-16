@@ -168,8 +168,161 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VKMJFUQP
 
+[Document8]
+DocumentPath=FMCW-Radar-v1.OutJob
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=0
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=
+
 [GeneratedDocument1]
 DocumentPath=Project Outputs for FMCW-Radar-v1\Design Rule Check - Radar.html
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for FMCW-Radar-v1\NC Drill\Radar-RoundHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for Free Documents\NC Drill\Radar-RoundHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for FMCW-Radar-v1\NC Drill\Radar-SlotHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for Free Documents\NC Drill\Radar-SlotHoles.TXT
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for FMCW-Radar-v1\NC Drill\Radar.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for Free Documents\NC Drill\Radar.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GM
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GM
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GP1
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GP1
+DItemRevisionGUID=
+
+[GeneratedDocument22]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GP2
+DItemRevisionGUID=
+
+[GeneratedDocument23]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GP2
+DItemRevisionGUID=
+
+[GeneratedDocument24]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument25]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument26]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument27]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument28]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument29]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument30]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument31]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument32]
+DocumentPath=Project Outputs for FMCW-Radar-v1\NC Drill\Radar.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument33]
+DocumentPath=Project Outputs for Free Documents\NC Drill\Radar.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument34]
+DocumentPath=Project Outputs for FMCW-Radar-v1\Gerber\Radar.REP
+DItemRevisionGUID=
+
+[GeneratedDocument35]
+DocumentPath=Project Outputs for Free Documents\Gerber\Radar.REP
 DItemRevisionGUID=
 
 [Configuration1]
@@ -1113,16 +1266,10 @@ UpdateToLatestRevision=1
 PartTypes=0
 ComponentLibIdentifierKind0=Library Name And Type
 ComponentLibraryIdentifier0=FMCW-Radar-v1.SchLib
-ComponentDesignItemID0=DESD3V3E1BL-7B
-ComponentSymbolReference0=DESD3V3E1BL-7B
+ComponentDesignItemID0=GRM155R71C224KA12D
+ComponentSymbolReference0=GRM155R71C224KA12D
 ComponentUpdate0=1
 ComponentIsDeviceSheet0=0
-ComponentLibIdentifierKind1=Library Name And Type
-ComponentLibraryIdentifier1=FMCW-Radar-v1.SchLib
-ComponentDesignItemID1=DESD5V0S1BA-7
-ComponentSymbolReference1=DESD5V0S1BA-7
-ComponentUpdate1=1
-ComponentIsDeviceSheet1=0
 FullReplace=1
 UpdateDesignatorLock=1
 UpdatePartIDLock=1
@@ -1136,11 +1283,11 @@ RemoveParameters=0
 AddModels=1
 RemoveModels=1
 UpdateCurrentModels=1
-ParameterName0=Breakdown Voltage-Nom
+ParameterName0=Capacitor Type
 ParameterUpdate0=1
-ParameterName1=Category
+ParameterName1=Case/Package
 ParameterUpdate1=1
-ParameterName2=Clamping Voltage-Max
+ParameterName2=Category
 ParameterUpdate2=1
 ParameterName3=Comment
 ParameterUpdate3=1
@@ -1166,88 +1313,85 @@ ParameterName13=ComponentLink5Description
 ParameterUpdate13=1
 ParameterName14=ComponentLink5URL
 ParameterUpdate14=1
-ParameterName15=Description
+ParameterName15=ComponentLink6Description
 ParameterUpdate15=1
-ParameterName16=Diode Element Material
+ParameterName16=ComponentLink6URL
 ParameterUpdate16=1
-ParameterName17=Diode Type
+ParameterName17=ComponentLink7Description
 ParameterUpdate17=1
-ParameterName18=JESD-30 Code
+ParameterName18=ComponentLink7URL
 ParameterUpdate18=1
-ParameterName19=JESD-609 Code
+ParameterName19=ComponentLink8Description
 ParameterUpdate19=1
-ParameterName20=Library Reference
+ParameterName20=ComponentLink8URL
 ParameterUpdate20=1
-ParameterName21=Manufacturer
+ParameterName21=Description
 ParameterUpdate21=1
-ParameterName22=Manufacturer Part Number
+ParameterName22=Dielectric Material
 ParameterUpdate22=1
-ParameterName23=Max Breakdown Voltage
+ParameterName23=Height
 ParameterUpdate23=1
-ParameterName24=Max Operating Temperature
+ParameterName24=JESD-609 Code
 ParameterUpdate24=1
-ParameterName25=Max Power Dissipation
+ParameterName25=Length
 ParameterUpdate25=1
-ParameterName26=Min Breakdown Voltage
+ParameterName26=Library Reference
 ParameterUpdate26=1
-ParameterName27=Min Operating Temperature
+ParameterName27=Manufacturer
 ParameterUpdate27=1
-ParameterName28=Moisture Sensitivity Level
+ParameterName28=Manufacturer Part Number
 ParameterUpdate28=1
-ParameterName29=Non-rep Peak Rev Power Dis-Max
+ParameterName29=Max Operating Temperature
 ParameterUpdate29=1
-ParameterName30=Number of Elements
+ParameterName30=Min Operating Temperature
 ParameterUpdate30=1
-ParameterName31=Package Body Material
+ParameterName31=Mounting Technology
 ParameterUpdate31=1
-ParameterName32=Package Shape
+ParameterName32=Multilayer
 ParameterUpdate32=1
-ParameterName33=Package Style
+ParameterName33=Package Shape
 ParameterUpdate33=1
-ParameterName34=Peak Reflow Temperature (Cel)
+ParameterName34=Package Style
 ParameterUpdate34=1
-ParameterName35=Pins
+ParameterName35=Packaging
 ParameterUpdate35=1
-ParameterName36=Polarity
+ParameterName36=Pins
 ParameterUpdate36=1
 ParameterName37=Pricing
 ParameterUpdate37=1
-ParameterName38=Reach SVHC Compliant
+ParameterName38=Rated DC Voltage (URdc)
 ParameterUpdate38=1
-ParameterName39=Reference Standard
+ParameterName39=Reach SVHC Compliant
 ParameterUpdate39=1
-ParameterName40=Rep Pk Reverse Voltage-Max
+ParameterName40=RoHS
 ParameterUpdate40=1
-ParameterName41=RoHS
+ParameterName41=RoHS Compliant
 ParameterUpdate41=1
-ParameterName42=RoHS Compliant
+ParameterName42=Stock
 ParameterUpdate42=1
-ParameterName43=Stock
+ParameterName43=Supplier
 ParameterUpdate43=1
-ParameterName44=Supplier
+ParameterName44=Supplier Part Number
 ParameterUpdate44=1
-ParameterName45=Supplier Part Number
+ParameterName45=Temperature Characteristics Code
 ParameterUpdate45=1
-ParameterName46=Surface Mount
+ParameterName46=Terminal Finish
 ParameterUpdate46=1
-ParameterName47=Technology
+ParameterName47=Termination
 ParameterUpdate47=1
-ParameterName48=Terminal Finish
+ParameterName48=Tolerance  (fill in as +-)
 ParameterUpdate48=1
-ParameterName49=Terminal Form
+ParameterName49=Tolerance (fill in as +-)
 ParameterUpdate49=1
-ParameterName50=Terminal Position
+ParameterName50=Value
 ParameterUpdate50=1
-ParameterName51=Time @ Peak Reflow Temperature-Max (s)
+ParameterName51=Width
 ParameterUpdate51=1
 ModelTypeGroup0=PCBLIB
 ModelTypeUpdate0=1
 ModelType0=PCBLIB
-ModelName0=CR_X1-DFN1006-2_DIO
+ModelName0=FP-GRM155-0_05-IPC_C
 ModelUpdate0=1
-ModelType1=PCBLIB
-ModelName1=FP-SOD323-IPC_C
-ModelUpdate1=1
 
 [DatabaseUpdateOptions]
 SelectedOnly=0
