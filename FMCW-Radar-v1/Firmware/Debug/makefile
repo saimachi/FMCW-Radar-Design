@@ -60,8 +60,8 @@ all: main-build
 main-build: FMCW_Radar.elf secondary-outputs
 
 # Tool invocations
-FMCW_Radar.elf FMCW_Radar.map: $(OBJS) $(USER_OBJS) C:\Users\saima\STM32CubeIDE\workspace_1.16.1\FMCW_Radar\STM32F303CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "FMCW_Radar.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\saima\STM32CubeIDE\workspace_1.16.1\FMCW_Radar\STM32F303CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FMCW_Radar.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+FMCW_Radar.elf FMCW_Radar.map: $(OBJS) $(USER_OBJS) C:\Projects\Personal\FMCW-Radar-Design\FMCW-Radar-v1\Firmware\STM32F303CBTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "FMCW_Radar.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Projects\Personal\FMCW-Radar-Design\FMCW-Radar-v1\Firmware\STM32F303CBTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FMCW_Radar.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
