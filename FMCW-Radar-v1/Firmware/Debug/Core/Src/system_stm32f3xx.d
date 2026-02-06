@@ -19,6 +19,8 @@ Core/Src/system_stm32f3xx.o: ../Core/Src/system_stm32f3xx.c \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h \
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h \
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dac.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dac_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h \
@@ -26,7 +28,9 @@ Core/Src/system_stm32f3xx.o: ../Core/Src/system_stm32f3xx.c \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h \
  ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h \
- ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h \
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h \
+ ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f3xx.h:
 ../Drivers/CMSIS/Device/ST/STM32F3xx/Include/stm32f303xc.h:
 ../Drivers/CMSIS/Include/core_cm4.h:
@@ -47,6 +51,8 @@ Core/Src/system_stm32f3xx.o: ../Core/Src/system_stm32f3xx.c \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dma_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_cortex.h:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc.h:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_adc_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dac.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_dac_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_flash.h:
@@ -55,3 +61,5 @@ Core/Src/system_stm32f3xx.o: ../Core/Src/system_stm32f3xx.c \
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_i2c_ex.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr.h:
 ../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_pwr_ex.h:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim.h:
+../Drivers/STM32F3xx_HAL_Driver/Inc/stm32f3xx_hal_tim_ex.h:

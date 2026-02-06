@@ -31,12 +31,14 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define VCO_RESET_GPIO_STATE 1
+#define DMA_BUF_SIZE 512
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+extern uint16_t adc_buf[DMA_BUF_SIZE];
+extern uint16_t adc_complete_acquisition[DMA_BUF_SIZE];
+extern volatile int isAdcTransferComplete;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
