@@ -31,7 +31,7 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#define DMA_BUF_SIZE 512
+#define DMA_BUF_SIZE 256
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
