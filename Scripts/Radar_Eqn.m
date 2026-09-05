@@ -30,7 +30,7 @@ P_watts = 0.001 * 10 .^ (P_signal_mixer_output / 10);
 
 figure(2);
 % System has 50 ohm impedance
-plot(R, 20 * log10(sqrt(P_watts * 50)));
+plot(R, sqrt(P_watts * 50));
 title("RMS AC Voltage at Amplifier Input");
 xlabel("Range (m)");
 ylabel("AC RMS Voltage (dBV)");
