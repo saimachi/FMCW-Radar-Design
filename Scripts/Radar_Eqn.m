@@ -33,4 +33,4 @@ figure(2);
 plot(R, sqrt(P_watts * 50));
 title("RMS AC Voltage at Amplifier Input");
 xlabel("Range (m)");
-ylabel("AC RMS Voltage (dBV)");
+ylabel("AC RMS (V)");
