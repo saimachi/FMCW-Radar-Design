@@ -34,9 +34,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define NS       128
-#define TIM4CLK  32000000
-#define F_SIGNAL 200
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -54,7 +51,7 @@ DMA_HandleTypeDef hdma_dac_ch1;
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
-static const uint16_t Wave_LUT[256] = {
+static const uint32_t Wave_LUT[256] = {
      1117,  1120,  1124,  1127,  1131,  1134,  1138,  1141,  1145,  1148,  1152,  1155,  1159,  1162,  1166,  1169,
      1173,  1176,  1180,  1183,  1187,  1190,  1194,  1198,  1201,  1205,  1208,  1212,  1215,  1219,  1222,  1226,
      1230,  1233,  1237,  1240,  1244,  1247,  1251,  1255,  1258,  1262,  1265,  1269,  1273,  1276,  1280,  1284,
@@ -72,9 +69,6 @@ static const uint16_t Wave_LUT[256] = {
      2013,  2017,  2022,  2027,  2032,  2037,  2042,  2047,  2052,  2057,  2062,  2067,  2072,  2077,  2082,  2088,
      2093,  2098,  2103,  2108,  2113,  2118,  2124,  2129,  2134,  2140,  2145,  2150,  2155,  2161,  2166,  2172
 };
-
-uint32_t DestAddress = (uint32_t) &(TIM2->CCR1);
-uint32_t TIM4_Ticks = TIM4CLK / (NS * F_SIGNAL);
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -169,29 +163,14 @@ int main(void)
   /* USER CODE BEGIN 2 */
   HAL_GPIO_WritePin (GPIOA, GPIO_PIN_1, GPIO_PIN_SET);
   HAL_ADCEx_Calibration_Start(&hadc1, ADC_SINGLE_ENDED);
-  HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, (uint32_t*)Wave_LUT, DMA_BUF_SIZE, DAC_ALIGN_12B_R);
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buf, DMA_BUF_SIZE);
-  HAL_TIM_Base_Start(&htim2);
-
-  /*
-  HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-  HAL_TIM_OC_Start(&htim4, TIM_CHANNEL_1);
-  if (HAL_DMA_Start_IT(&hdma_tim4_ch1, (uint32_t)Wave_LUT, DestAddress, NS) != HAL_OK) {
-	  Error_Handler();
-  }
-  __HAL_TIM_ENABLE_DMA(&htim4, TIM_DMA_CC1);
-  */
+  if (HAL_DAC_Start_DMA(&hdac, DAC_CHANNEL_1, Wave_LUT, DMA_BUF_SIZE, DAC_ALIGN_12B_R) != HAL_OK) Error_Handler();
+  if (HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buf, DMA_BUF_SIZE) != HAL_OK) Error_Handler();
+  if (HAL_TIM_Base_Start(&htim2) != HAL_OK) Error_Handler();
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-
-  /*
-  int startingAdcValue =(0.4 / 3.3) * 4096;
-  int endingAdcValue = (2.4 / 3.3) * 4096;
-  */
-
   while (1)
   {
 	if (isAdcTransferComplete) {

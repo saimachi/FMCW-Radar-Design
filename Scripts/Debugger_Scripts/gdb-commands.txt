@@ -1,5 +1,5 @@
 target remote :3333
-file "C:\\Projects\\Personal\\FMCW-Radar-Design\\FMCW-Radar-v1\\Firmware\\Debug\\FMCW_Radar.elf"
+file "C:\\Personal\\FMCW-Radar-Design\\FMCW-Radar-v1\\Firmware\\Debug\\FMCW_Radar.elf"
 break main.c:206
 continue
-dump binary value C:\\Projects\\Buffer_Dump_2.hex outputString
+dump binary value C:\\Personal\\FMCW-Radar-Design\\Buffer_Dump_2.hex outputString

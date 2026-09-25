@@ -12,8 +12,8 @@ Constraints (MHz, MHz/V):
   f'(2.4) = 90
 """
 
-from math import isfinite
 import numpy as np
+import matplotlib.pyplot as plt
 
 # ----------- Adjustable parameters -----------
 N_POINTS   = 512              # LUT length (inclusive endpoints)
@@ -50,44 +50,6 @@ def make_f_and_df(a, b, c, d):
     df = lambda V: (3*a*V + 2*b)*V + c
     return f, df
 
-def invert_monotonic(f, df, target_f, v_lo, v_hi, max_iter=50, tol=1e-9):
-    """
-    Safely invert monotonic f(V) ∈ [f(v_lo), f(v_hi)] using a
-    Newton-Raphson step with bisection fallback.
-    """
-    # Initial guess: linear map by average slope
-    V = v_lo + (target_f - f(v_lo)) * (v_hi - v_lo) / (f(v_hi) - f(v_lo))
-
-    lo, hi = v_lo, v_hi
-    f_lo, f_hi = f(lo), f(hi)
-
-    for _ in range(max_iter):
-        fV = f(V)
-        if abs(fV - target_f) < tol:
-            return V
-
-        dV = df(V)
-        newton_ok = isfinite(dV) and abs(dV) > 1e-12
-        if newton_ok:
-            Vn = V - (fV - target_f) / dV
-        else:
-            Vn = np.nan
-
-        # Keep brackets updated
-        if fV < target_f:
-            lo, f_lo = V, fV
-        else:
-            hi, f_hi = V, fV
-
-        # If Newton step goes out of bounds, bisect
-        if not isfinite(Vn) or (Vn <= lo) or (Vn >= hi):
-            V = 0.5*(lo + hi)
-        else:
-            V = Vn
-
-    # Fallback (should not happen if f is well-behaved and monotonic)
-    return max(v_lo, min(v_hi, V))
-
 def quantize_to_dac(V, vref, bits):
     code = int(round(V / vref * ((1 << bits) - 1)))
     return max(0, min((1 << bits) - 1, code))
@@ -110,15 +72,31 @@ a, b, c, d = fit_cubic_from_endpoint_slopes(
 )
 f, df = make_f_and_df(a, b, c, d)
 
-# Sanity: ensure monotonic increasing in [V_MIN, V_MAX]
-assert f(V_MIN) <= f(V_MAX) + 1e-6, "Model not monotonic as expected."
-
 # Frequency-linear sweep
 freqs = np.linspace(F_START, F_STOP, N_POINTS)
+V_grid = np.linspace(V_MIN, V_MAX, N_POINTS)
+f_grid = f(V_grid)
+vtunes_interp = np.interp(freqs, f_grid, V_grid)
 
-# Invert to get Vtune per frequency, then quantize to DAC codes
-vtunes = [invert_monotonic(f, df, F, V_MIN, V_MAX) for F in freqs]
-codes  = [quantize_to_dac(V, VREF, DAC_BITS) for V in vtunes]
+# quantize to DAC codes
+codes  = [quantize_to_dac(V, VREF, DAC_BITS) for V in vtunes_interp]
+print(format_c_array(codes, name=ARRAY_NAME, per_line=LINE_WRAP))
+
+plt.figure(1)
+# plt.plot(freqs, vtunes)
+plt.title("VCO Frequency by LUT Index")
+plt.plot(np.arange(N_POINTS), f(vtunes_interp))
+plt.xlabel("LUT Index")
+plt.ylabel("Frequency (MHz)")
+
+plt.figure(2)
+# plt.plot(freqs, vtunes)
+plt.title("Tuning Voltage by LUT Index")
+plt.plot(np.arange(N_POINTS), vtunes_interp)
+plt.xlabel("LUT Index")
+plt.ylabel("Tuning Voltage (V)")
+
+plt.show()
 
 # ---- Print results ----
 print("// Cubic coefficients for f(V) = a V^3 + b V^2 + c V + d  (MHz, V)")

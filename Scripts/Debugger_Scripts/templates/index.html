@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FMCW Radar Control</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 2rem 2.5rem;
+      width: 480px;
+      max-width: 95vw;
+    }
+
+    h1 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #58a6ff;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.02em;
+    }
+
+    .field {
+      margin-bottom: 1.1rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #8b949e;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 0.35rem;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+      width: 100%;
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      color: #e6edf3;
+      font-size: 0.95rem;
+      padding: 0.55rem 0.75rem;
+      transition: border-color 0.15s;
+      outline: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="number"]:focus {
+      border-color: #58a6ff;
+    }
+
+    .status-bar {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.9rem;
+    }
+
+    .status-label { color: #8b949e; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    .status-value { font-weight: 600; }
+    .status-value.idle    { color: #8b949e; }
+    .status-value.running { color: #f0c040; }
+    .status-value.done    { color: #3fb950; }
+    .status-value.error   { color: #f85149; }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .progress-text {
+      font-size: 0.95rem;
+      font-variant-numeric: tabular-nums;
+      min-width: 4rem;
+      text-align: right;
+    }
+
+    progress {
+      flex: 1;
+      height: 6px;
+      border-radius: 3px;
+      appearance: none;
+      -webkit-appearance: none;
+      background: #21262d;
+      border: none;
+    }
+    progress::-webkit-progress-bar   { background: #21262d; border-radius: 3px; }
+    progress::-webkit-progress-value { background: #58a6ff; border-radius: 3px; }
+    progress::-moz-progress-bar      { background: #58a6ff; border-radius: 3px; }
+
+    .btn {
+      width: 100%;
+      padding: 0.65rem 1rem;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s, opacity 0.15s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-start {
+      background: #238636;
+      color: #fff;
+    }
+    .btn-start:hover:not(:disabled) { background: #2ea043; }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .error-box {
+      background: #1c1010;
+      border: 1px solid #f85149;
+      border-radius: 6px;
+      color: #f85149;
+      font-size: 0.85rem;
+      padding: 0.6rem 0.85rem;
+      margin-top: 1rem;
+      word-break: break-word;
+    }
+
+    .hint {
+      font-size: 0.75rem;
+      color: #484f58;
+      margin-top: 0.3rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #21262d;
+      margin: 1.5rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>FMCW Radar Control</h1>
+
+  <!-- Acquisition status -->
+  <div class="status-bar">
+    <div>
+      <div class="status-label">Status</div>
+      <div class="status-value {{ state.status }}">
+        {% if state.status == 'idle' %}Idle
+        {% elif state.status == 'running' %}Running…
+        {% elif state.status == 'done' %}Done
+        {% elif state.status == 'error' %}Error
+        {% endif %}
+      </div>
+    </div>
+    <div>
+      <div class="status-label">Acquisition</div>
+      <div class="progress-row">
+        {% if state.total_count > 0 %}
+          <progress value="{{ state.current_count }}" max="{{ state.total_count }}"></progress>
+        {% endif %}
+        <span class="progress-text">
+          {{ state.current_count }} / {{ state.total_count }}
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Configuration form -->
+  <form method="POST" action="/start">
+    <div class="field">
+      <label>Acquisition Count</label>
+      <input
+        type="number"
+        name="total_count"
+        min="1"
+        value="{{ request.form.get('total_count', state.total_count or 1) }}"
+        {% if state.running %}disabled{% endif %}
+        required
+      />
+    </div>
+
+    <div class="field">
+      <label>Base Folder Path</label>
+      <input
+        type="text"
+        name="base_path"
+        placeholder="C:\Personal\FMCW-Radar-Design"
+        value="{{ request.form.get('base_path', 'C:\\Personal\\FMCW-Radar-Design') }}"
+        {% if state.running %}disabled{% endif %}
+        required
+      />
+      <p class="hint">Windows path — files are saved here</p>
+    </div>
+
+    <div class="field">
+      <label>File Name Prefix</label>
+      <input
+        type="text"
+        name="base_filename"
+        placeholder="Buffer_Dump"
+        value="{{ request.form.get('base_filename', 'Buffer_Dump') }}"
+        {% if state.running %}disabled{% endif %}
+        required
+      />
+      <p class="hint">Each file will be saved as &lt;prefix&gt;_&lt;n&gt;.hex</p>
+    </div>
+
+    <button
+      class="btn btn-start"
+      type="submit"
+      {% if state.running %}disabled{% endif %}
+    >
+      {% if state.running %}Acquisition Running…{% else %}Start Acquisition{% endif %}
+    </button>
+  </form>
+
+  {% if state.error %}
+  <div class="error-box">{{ state.error }}</div>
+  {% endif %}
+</div>
+</body>
+</html>
