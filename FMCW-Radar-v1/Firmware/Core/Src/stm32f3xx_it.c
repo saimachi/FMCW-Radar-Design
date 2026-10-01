@@ -30,6 +30,7 @@
 uint16_t adc_buf[DMA_BUF_SIZE];
 uint16_t adc_complete_acquisition[DMA_BUF_SIZE];
 volatile int isAdcTransferComplete = 0;
+static volatile uint8_t firstHalfValid = 0;
 /* USER CODE END TD */
 
 /* Private define ------------------------------------------------------------*/
@@ -234,13 +235,15 @@ void DMA1_Channel3_IRQHandler(void)
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc) {
 	if (!isAdcTransferComplete) {
 		memcpy(adc_complete_acquisition, adc_buf, sizeof(adc_buf) / 2);
+		firstHalfValid = 1;
 	}
 }
 // Called when buffer is completely filled
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc) {
-	if (!isAdcTransferComplete) {
+	if (!isAdcTransferComplete && firstHalfValid) {
 		memcpy(adc_complete_acquisition + DMA_BUF_SIZE / 2, adc_buf + DMA_BUF_SIZE / 2, sizeof(adc_buf) / 2);
 		isAdcTransferComplete = 1;
 	}
+	firstHalfValid = 0;
 }
 /* USER CODE END 1 */

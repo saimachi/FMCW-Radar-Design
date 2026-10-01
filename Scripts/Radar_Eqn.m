@@ -19,9 +19,10 @@ P_signal_dBm = 10 * log10(Pe / 0.001);
 figure(1);
 plot(R, P_signal_dBm);
 title("Received Power with Distance");
-subtitle("1 m^{2} RCS");
+% subtitle("1 m^{2} RCS");
 xlabel("Range (m)");
 ylabel("Received Power (dBm)");
+set(gca, 'FontSize', 16);
 
 % PA + Mixer Conversion Loss
 P_signal_mixer_output = P_signal_dBm + 21 - 6.79;
@@ -34,3 +35,4 @@ plot(R, sqrt(P_watts * 50));
 title("RMS AC Voltage at Amplifier Input");
 xlabel("Range (m)");
 ylabel("AC RMS (V)");
+set(gca, 'FontSize', 16);
